@@ -3,5 +3,5 @@ import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [react()],
-  base: "/react-template/", // Pakeisk pagal savo repo pavadinimą
+  base: "/module-f-react-665809/", // Pakeisk pagal savo repo pavadinimą
 });
