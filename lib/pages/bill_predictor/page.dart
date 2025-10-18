@@ -638,13 +638,34 @@ class _BillPredictorPageState extends State<BillPredictorPage>
                               sections: chartData.map((data) => PieChartSectionData(
                                 color: data.color,
                                 value: data.percentage > 0 ? data.percentage : 0.1, // Ensure minimum value
-                                title: data.percentage > 0 ? '${data.percentage.toStringAsFixed(1)}%' : '',
+                                title: '', // Remove percentage text
                                 radius: 80,
                                 titleStyle: const TextStyle(
                                   fontSize: 12,
                                   fontWeight: FontWeight.bold,
                                   color: Colors.white,
                                 ),
+                                badgeWidget: Container(
+                                  width: 30,
+                                  height: 30,
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    shape: BoxShape.circle,
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.black.withOpacity(0.2),
+                                        blurRadius: 4,
+                                        offset: const Offset(0, 2),
+                                      ),
+                                    ],
+                                  ),
+                                  child: Icon(
+                                    data.icon,
+                                    size: 16,
+                                    color: data.color,
+                                  ),
+                                ),
+                                badgePositionPercentageOffset: 0.8,
                               )).toList(),
                               sectionsSpace: 2,
                               centerSpaceRadius: 60,
@@ -699,7 +720,7 @@ class _BillPredictorPageState extends State<BillPredictorPage>
                   ],
                 ),
                 Text(
-                  '${data.kwh} kWh',
+                  '${data.kwh} kWh (${data.percentage.toStringAsFixed(1)}%)',
                   style: TextStyle(fontSize: 10, color: Colors.grey[600]),
                 ),
               ],
