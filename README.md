@@ -27,57 +27,62 @@ A Flutter web application that helps users predict their electricity bills and c
    flutter run -d chrome
    ```
 
-### Deployment to Vercel
+### Deployment Options
 
-This project is configured for automatic deployment to Vercel through GitHub.
+This project supports multiple deployment options:
 
-#### Setup Instructions:
+#### Option 1: GitHub Pages (Recommended - Free)
 
 1. **Push to GitHub**:
-   - Create a new repository on GitHub
-   - Push your code to the repository
+   ```bash
+   git init
+   git add .
+   git commit -m "Initial commit"
+   git remote add origin https://github.com/YOUR_USERNAME/energy-bill-predictor.git
+   git push -u origin main
+   ```
 
-2. **Connect to Vercel**:
-   - Go to [vercel.com](https://vercel.com)
-   - Sign in with your GitHub account
-   - Click "New Project"
-   - Import your GitHub repository
-   - Vercel will automatically detect it's a Flutter project
+2. **Enable GitHub Pages**:
+   - Go to your repository settings
+   - Click "Pages" in the sidebar
+   - Source: "GitHub Actions"
+   - The workflow will automatically deploy your app
 
-3. **Configure Build Settings**:
-   - **Framework Preset**: Other
-   - **Build Command**: `flutter build web --release`
-   - **Output Directory**: `build/web`
-   - **Install Command**: `flutter pub get`
+3. **Your app will be live at**:
+   `https://YOUR_USERNAME.github.io/energy-bill-predictor/`
 
-4. **Environment Variables** (if needed):
-   - Add any required environment variables in Vercel dashboard
+#### Option 2: Vercel
 
-5. **Deploy**:
-   - Click "Deploy"
-   - Vercel will build and deploy your app automatically
-
-#### Manual Deployment:
-
-If you prefer manual deployment:
-
-1. Build the web app:
+1. **Build locally**:
    ```bash
    flutter build web --release
    ```
 
-2. Deploy the `build/web` folder to Vercel
+2. **Deploy to Vercel**:
+   - Go to [vercel.com](https://vercel.com)
+   - Upload the `build/web` folder directly
+   - Deploy
 
-#### GitHub Actions (Optional):
+#### Option 3: Netlify
 
-The project includes a GitHub Actions workflow for automated deployment. To use it:
+1. **Build locally**:
+   ```bash
+   flutter build web --release
+   ```
 
-1. Add these secrets to your GitHub repository:
-   - `VERCEL_TOKEN`: Your Vercel API token
-   - `ORG_ID`: Your Vercel organization ID
-   - `PROJECT_ID`: Your Vercel project ID
+2. **Deploy to Netlify**:
+   - Go to [netlify.com](https://netlify.com)
+   - Drag and drop the `build/web` folder
+   - Deploy
 
-2. Push to the main branch to trigger automatic deployment
+#### Manual Deployment:
+
+For any platform, build first:
+```bash
+flutter build web --release
+```
+
+Then deploy the `build/web` folder to your chosen platform.
 
 ## Project Structure
 
