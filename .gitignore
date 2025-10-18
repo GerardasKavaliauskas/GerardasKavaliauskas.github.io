@@ -53,6 +53,6 @@ app.*.map.json
 .env.local
 .env.production
 
-# Build outputs
-build/
+# Build outputs (commented out for deployment)
+# build/
 dist/
